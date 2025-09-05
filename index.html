@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Nova - Innovative Software Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .floating-delayed {
+            animation: float 3s ease-in-out infinite 1s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .typing-animation {
+            overflow: hidden;
+            border-right: 3px solid #3B82F6;
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent;
+            }
+
+            50% {
+                border-color: #3B82F6;
+            }
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 32px 64px -12px rgba(0, 0, 0, 0.35);
+        }
+
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .bg-pattern {
+            background-image: radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.15) 1px, transparent 0);
+            background-size: 20px 20px;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #312e81 25%, #1e1b4b 50%, #0f172a 100%);
+        }
+
+        .service-card {
+            background: linear-gradient(145deg, #374151 0%, #1f2937 100%);
+        }
+
+        .project-overlay {
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 60%, transparent 100%);
+        }
+
+        .navbar-scroll {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+        }
+
+        @keyframes slideInFromLeft {
+            from {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInFromRight {
+            from {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .slide-in-left {
+            animation: slideInFromLeft 0.8s ease-out forwards;
+        }
+
+        .slide-in-right {
+            animation: slideInFromRight 0.8s ease-out forwards;
+        }
+
+        .button-glow:hover {
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+        }
+
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .counter-animation {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-900 text-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <div class="relative">
+                        <i class="fas fa-rocket text-3xl text-blue-500"></i>
+                        <div class="absolute -top-1 -right-1 w-3 h-3 bg-purple-500 rounded-full animate-pulse"></div>
+                    </div>
+                    <h1 class="text-2xl font-bold gradient-text">Web Nova</h1>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-blue-400 transition-colors duration-300 relative group">
+                        Home
+                        <span
+                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#services" class="hover:text-blue-400 transition-colors duration-300 relative group">
+                        Services
+                        <span
+                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#about" class="hover:text-blue-400 transition-colors duration-300 relative group">
+                        About
+                        <span
+                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#projects" class="hover:text-blue-400 transition-colors duration-300 relative group">
+                        Projects
+                        <span
+                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#contact" class="hover:text-blue-400 transition-colors duration-300 relative group">
+                        Contact
+                        <span
+                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </div>
+                <button class="md:hidden text-white hover:text-blue-400 transition-colors">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center hero-gradient bg-pattern overflow-hidden relative">
+        <!-- Animated background elements -->
+        <div class="absolute inset-0">
+            <div class="absolute top-20 left-20 w-72 h-72 bg-blue-500 opacity-10 rounded-full blur-3xl animate-pulse">
+            </div>
+            <div class="absolute bottom-20 right-20 w-96 h-96 bg-purple-500 opacity-10 rounded-full blur-3xl animate-pulse"
+                style="animation-delay: 2s;"></div>
+        </div>
+
+        <div class="container mx-auto px-6 py-20 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <div class="mb-6">
+                        <span
+                            class="inline-block px-4 py-2 bg-blue-500/20 text-blue-400 rounded-full text-sm font-semibold mb-4 glass-effect">
+                            🚀 Welcome to the Future
+                        </span>
+                    </div>
+                    <h2 class="text-6xl lg:text-7xl font-black mb-6 leading-tight text-shadow">
+                        <span class="gradient-text">We Build</span><br>
+                        <span class="typing-animation text-white">Digital Excellence</span>
+                    </h2>
+                    <p class="text-xl text-gray-300 mb-8 leading-relaxed max-w-2xl">
+                        Web Nova is your premier partner for cutting-edge software solutions. We transform innovative
+                        ideas into powerful digital experiences that drive success.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button
+                            class="bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 rounded-full text-lg font-bold hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 button-glow">
+                            <i class="fas fa-rocket mr-2"></i>
+                            Start Your Project
+                        </button>
+                        <button
+                            class="border-2 border-blue-500 px-8 py-4 rounded-full text-lg font-bold hover:bg-blue-500 hover:text-white transition-all duration-300 glass-effect">
+                            <i class="fas fa-play mr-2"></i>
+                            View Our Work
+                        </button>
+                    </div>
+                    <div class="flex items-center space-x-8 mt-12">
+                        <div class="flex items-center space-x-2">
+                            <div class="flex -space-x-2">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-gradient-to-r from-blue-400 to-blue-600 border-2 border-white">
+                                </div>
+                                <div
+                                    class="w-10 h-10 rounded-full bg-gradient-to-r from-purple-400 to-purple-600 border-2 border-white">
+                                </div>
+                                <div
+                                    class="w-10 h-10 rounded-full bg-gradient-to-r from-green-400 to-green-600 border-2 border-white">
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold">Trusted by 100+ clients</p>
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star text-xs"></i>
+                                    <i class="fas fa-star text-xs"></i>
+                                    <i class="fas fa-star text-xs"></i>
+                                    <i class="fas fa-star text-xs"></i>
+                                    <i class="fas fa-star text-xs"></i>
+                                    <span class="text-white text-xs ml-1">5.0 rating</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="floating">
+                        <div class="service-card p-8 rounded-3xl glass-effect relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-600/20"></div>
+                            <div class="relative z-10">
+                                <i class="fas fa-laptop-code text-6xl text-blue-400 mb-6 block"></i>
+                                <h3 class="text-2xl font-bold mb-4">Full-Stack Development</h3>
+                                <div class="space-y-3">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-sm text-gray-300">React & Node.js</span>
+                                        <div class="w-24 h-2 bg-gray-600 rounded-full overflow-hidden">
+                                            <div
+                                                class="w-20 h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-pulse">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-sm text-gray-300">Database Design</span>
+                                        <div class="w-24 h-2 bg-gray-600 rounded-full overflow-hidden">
+                                            <div class="w-16 h-full bg-gradient-to-r from-green-500 to-teal-500 rounded-full animate-pulse"
+                                                style="animation-delay: 0.5s;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-sm text-gray-300">Cloud Deploy</span>
+                                        <div class="w-24 h-2 bg-gray-600 rounded-full overflow-hidden">
+                                            <div class="w-22 h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-pulse"
+                                                style="animation-delay: 1s;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 floating-delayed">
+                        <div class="bg-gradient-to-br from-purple-500 to-pink-600 p-6 rounded-2xl glass-effect">
+                            <i class="fas fa-mobile-alt text-4xl text-white"></i>
+                        </div>
+                    </div>
+                    <div class="absolute -top-6 -right-6 floating">
+                        <div class="bg-gradient-to-br from-green-500 to-teal-600 p-6 rounded-2xl glass-effect">
+                            <i class="fas fa-database text-4xl text-white"></i>
+                        </div>
+                    </div>
+                    <div class="absolute top-1/2 -left-8 floating-delayed">
+                        <div class="bg-gradient-to-br from-yellow-500 to-orange-600 p-4 rounded-xl glass-effect">
+                            <i class="fas fa-lightbulb text-2xl text-white"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 pulse-animation">
+            <i class="fas fa-chevron-down text-2xl text-blue-400"></i>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-slate-800 relative">
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-900/50 to-slate-800/50"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-20 scroll-reveal">
+                <span
+                    class="inline-block px-4 py-2 bg-blue-500/20 text-blue-400 rounded-full text-sm font-semibold mb-4">
+                    Our Services
+                </span>
+                <h3 class="text-5xl font-bold mb-6 gradient-text">What We Do Best</h3>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                    We offer comprehensive technology services that help businesses thrive in the digital age
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div
+                    class="card-hover service-card p-8 rounded-2xl glass-effect scroll-reveal group relative overflow-hidden">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="text-blue-500 text-5xl mb-6 transform group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4">Web Development</h4>
+                        <p class="text-gray-400 leading-relaxed mb-6">
+                            Modern, responsive websites built with cutting-edge technologies and optimized for
+                            performance.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs">React</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs">Vue.js</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs">Next.js</span>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="card-hover service-card p-8 rounded-2xl glass-effect scroll-reveal group relative overflow-hidden">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-green-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="text-green-500 text-5xl mb-6 transform group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4">Mobile Apps</h4>
+                        <p class="text-gray-400 leading-relaxed mb-6">
+                            Native and cross-platform mobile applications with exceptional user experiences.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-xs">React
+                                Native</span>
+                            <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-xs">Flutter</span>
+                            <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-xs">Swift</span>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="card-hover service-card p-8 rounded-2xl glass-effect scroll-reveal group relative overflow-hidden">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="text-purple-500 text-5xl mb-6 transform group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4">Cloud Solutions</h4>
+                        <p class="text-gray-400 leading-relaxed mb-6">
+                            Scalable cloud infrastructure and deployment solutions for modern applications.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs">AWS</span>
+                            <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs">Azure</span>
+                            <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs">Docker</span>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="card-hover service-card p-8 rounded-2xl glass-effect scroll-reveal group relative overflow-hidden">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-red-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="text-red-500 text-5xl mb-6 transform group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4">Cybersecurity</h4>
+                        <p class="text-gray-400 leading-relaxed mb-6">
+                            Comprehensive security solutions to protect your business from digital threats.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-red-500/20 text-red-400 rounded-full text-xs">Penetration
+                                Testing</span>
+                            <span class="px-3 py-1 bg-red-500/20 text-red-400 rounded-full text-xs">Security
+                                Audits</span>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="card-hover service-card p-8 rounded-2xl glass-effect scroll-reveal group relative overflow-hidden">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-yellow-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="text-yellow-500 text-5xl mb-6 transform group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4">AI & Machine Learning</h4>
+                        <p class="text-gray-400 leading-relaxed mb-6">
+                            Intelligent solutions powered by artificial intelligence and machine learning.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-xs">TensorFlow</span>
+                            <span class="px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-xs">PyTorch</span>
+                            <span class="px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-xs">OpenAI</span>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="card-hover service-card p-8 rounded-2xl glass-effect scroll-reveal group relative overflow-hidden">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-teal-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="text-teal-500 text-5xl mb-6 transform group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4">Data Analytics</h4>
+                        <p class="text-gray-400 leading-relaxed mb-6">
+                            Transform raw data into actionable insights for informed decision-making.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-teal-500/20 text-teal-400 rounded-full text-xs">Power BI</span>
+                            <span class="px-3 py-1 bg-teal-500/20 text-teal-400 rounded-full text-xs">Tableau</span>
+                            <span class="px-3 py-1 bg-teal-500/20 text-teal-400 rounded-full text-xs">Python</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative">
+        <div class="absolute inset-0 bg-pattern opacity-30"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="scroll-reveal slide-in-left">
+                    <span
+                        class="inline-block px-4 py-2 bg-purple-500/20 text-purple-400 rounded-full text-sm font-semibold mb-6">
+                        About Web Nova
+                    </span>
+                    <h3 class="text-5xl font-bold mb-8 gradient-text">Crafting Digital Excellence Since 2019</h3>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                        Web Nova is a leading software development company dedicated to delivering innovative digital
+                        solutions.
+                        We combine technical expertise with creative vision to build exceptional software that drives
+                        business growth.
+                    </p>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-8">
+                        Our passionate team of developers, designers, and strategists work collaboratively to transform
+                        your ideas
+                        into powerful digital experiences that make a lasting impact.
+                    </p>
+                    <div class="grid grid-cols-3 gap-8 text-center mb-8">
+                        <div class="counter-animation">
+                            <h4 class="text-4xl font-bold text-blue-500 mb-2" data-target="150">0</h4>
+                            <p class="text-gray-400 font-medium">Projects Completed</p>
+                        </div>
+                        <div class="counter-animation">
+                            <h4 class="text-4xl font-bold text-green-500 mb-2" data-target="5">0</h4>
+                            <p class="text-gray-400 font-medium">Years Experience</p>
+                        </div>
+                        <div class="counter-animation">
+                            <h4 class="text-4xl font-bold text-purple-500 mb-2" data-target="98">0</h4>
+                            <p class="text-gray-400 font-medium">Client Satisfaction</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-4">
+                        <button
+                            class="bg-gradient-to-r from-purple-600 to-pink-600 px-6 py-3 rounded-full font-semibold hover:from-purple-700 hover:to-pink-700 transform hover:scale-105 transition-all duration-300">
+                            Learn More About Us
+                        </button>
+                        <button
+                            class="border border-gray-600 px-6 py-3 rounded-full font-semibold hover:border-purple-500 hover:text-purple-400 transition-all duration-300">
+                            Download Company Profile
+                        </button>
+                    </div>
+                </div>
+                <div class="relative scroll-reveal slide-in-right">
+                    <div class="service-card p-10 rounded-3xl glass-effect relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20"></div>
+                        <div class="relative z-10">
+                            <div class="grid grid-cols-2 gap-6 mb-8">
+                                <div
+                                    class="bg-white/10 p-6 rounded-xl text-center backdrop-blur-sm hover:bg-white/20 transition-all duration-300 group">
+                                    <i
+                                        class="fas fa-headset text-4xl mb-4 text-purple-400 group-hover:scale-110 transition-transform duration-300"></i>
+                                    <h5 class="font-bold text-lg">24/7 Support</h5>
+                                    <p class="text-gray-400 text-sm mt-2">Continuous support and maintenance</p>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <div class="flex justify-center space-x-2 mb-4">
+                                    <div class="w-16 h-2 bg-blue-500 rounded-full"></div>
+                                    <div class="w-12 h-2 bg-purple-500 rounded-full"></div>
+                                    <div class="w-8 h-2 bg-pink-500 rounded-full"></div>
+                                </div>
+                                <p class="text-gray-300 font-semibold">Our Core Values Drive Everything We Do</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 bg-slate-800 relative">
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-20 scroll-reveal">
+                <span
+                    class="inline-block px-4 py-2 bg-green-500/20 text-green-400 rounded-full text-sm font-semibold mb-4">
+                    Our Portfolio
+                </span>
+                <h3 class="text-5xl font-bold mb-6 gradient-text">Featured Projects</h3>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                    Discover our most impactful work that has helped businesses achieve their digital transformation
+                    goals
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="card-hover service-card rounded-2xl overflow-hidden glass-effect scroll-reveal group">
+                    <div class="relative h-64 bg-gradient-to-br from-blue-500 to-blue-700 overflow-hidden">
+                        <div class="absolute inset-0 project-overlay"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-shopping-cart text-8xl text-white/30"></i>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span
+                                class="px-3 py-1 bg-blue-500/80 backdrop-blur-sm text-white rounded-full text-xs font-semibold">
+                                E-Commerce
+                            </span>
+                        </div>
+                        <div
+                            class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <button
+                                class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors">
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-2xl font-bold mb-3 group-hover:text-blue-400 transition-colors duration-300">
+                            ShopFlow Pro</h4>
+                        <p class="text-gray-400 mb-6 leading-relaxed">
+                            Complete e-commerce platform with advanced inventory management, secure payment processing,
+                            and real-time analytics dashboard.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs">React</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs">Node.js</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs">MongoDB</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs">Stripe</span>
+                        </div>
+                        <button
+                            class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 font-semibold button-glow">
+                            <i class="fas fa-external-link-alt mr-2"></i>
+                            View Project
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="card-hover service-card rounded-2xl overflow-hidden glass-effect scroll-reveal group">
+                    <div class="relative h-64 bg-gradient-to-br from-green-500 to-green-700 overflow-hidden">
+                        <div class="absolute inset-0 project-overlay"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-hospital text-8xl text-white/30"></i>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span
+                                class="px-3 py-1 bg-green-500/80 backdrop-blur-sm text-white rounded-full text-xs font-semibold">
+                                Healthcare
+                            </span>
+                        </div>
+                        <div
+                            class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <button
+                                class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors">
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-2xl font-bold mb-3 group-hover:text-green-400 transition-colors duration-300">
+                            MediCore System</h4>
+                        <p class="text-gray-400 mb-6 leading-relaxed">
+                            Comprehensive hospital management system with patient records, appointment scheduling, and
+                            integrated billing solutions.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-xs">Vue.js</span>
+                            <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-xs">Laravel</span>
+                            <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-xs">MySQL</span>
+                            <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-xs">AWS</span>
+                        </div>
+                        <button
+                            class="bg-green-600 hover:bg-green-700 px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 font-semibold button-glow">
+                            <i class="fas fa-external-link-alt mr-2"></i>
+                            View Project
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="card-hover service-card rounded-2xl overflow-hidden glass-effect scroll-reveal group">
+                    <div class="relative h-64 bg-gradient-to-br from-purple-500 to-purple-700 overflow-hidden">
+                        <div class="absolute inset-0 project-overlay"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-graduation-cap text-8xl text-white/30"></i>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span
+                                class="px-3 py-1 bg-purple-500/80 backdrop-blur-sm text-white rounded-full text-xs font-semibold">
+                                Education
+                            </span>
+                        </div>
+                        <div
+                            class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <button
+                                class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors">
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-2xl font-bold mb-3 group-hover:text-purple-400 transition-colors duration-300">
+                            EduLearn Platform</h4>
+                        <p class="text-gray-400 mb-6 leading-relaxed">
+                            Interactive learning management system with video streaming, progress tracking, and
+                            AI-powered personalized recommendations.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs">Angular</span>
+                            <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs">.NET
+                                Core</span>
+                            <span
+                                class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs">PostgreSQL</span>
+                            <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs">Azure</span>
+                        </div>
+                        <button
+                            class="bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 font-semibold button-glow">
+                            <i class="fas fa-external-link-alt mr-2"></i>
+                            View Project
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View All Projects Button -->
+            <div class="text-center mt-16 scroll-reveal">
+                <button
+                    class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 px-8 py-4 rounded-full text-lg font-bold transition-all duration-300 transform hover:scale-105 button-glow">
+                    <i class="fas fa-folder-open mr-2"></i>
+                    View All Projects
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative">
+        <div class="absolute inset-0 bg-pattern opacity-20"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-20 scroll-reveal">
+                <span
+                    class="inline-block px-4 py-2 bg-orange-500/20 text-orange-400 rounded-full text-sm font-semibold mb-4">
+                    Get In Touch
+                </span>
+                <h3 class="text-5xl font-bold mb-6 gradient-text">Let's Build Something Amazing</h3>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                    Ready to transform your ideas into reality? We're here to help you achieve your digital goals
+                </p>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div class="scroll-reveal slide-in-left">
+                    <form class="space-y-6" id="contactForm">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="relative">
+                                <input type="text" placeholder="Full Name" required
+                                    class="w-full p-4 bg-slate-700/50 rounded-lg border border-slate-600 focus:border-blue-500 focus:outline-none transition-all duration-300 backdrop-blur-sm glass-effect">
+                                <div class="absolute inset-y-0 right-0 flex items-center pr-4">
+                                    <i class="fas fa-user text-slate-400"></i>
+                                </div>
+                            </div>
+                            <div class="relative">
+                                <input type="email" placeholder="Email Address" required
+                                    class="w-full p-4 bg-slate-700/50 rounded-lg border border-slate-600 focus:border-blue-500 focus:outline-none transition-all duration-300 backdrop-blur-sm glass-effect">
+                                <div class="absolute inset-y-0 right-0 flex items-center pr-4">
+                                    <i class="fas fa-envelope text-slate-400"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="relative">
+                                <input type="tel" placeholder="Phone Number"
+                                    class="w-full p-4 bg-slate-700/50 rounded-lg border border-slate-600 focus:border-blue-500 focus:outline-none transition-all duration-300 backdrop-blur-sm glass-effect">
+                                <div class="absolute inset-y-0 right-0 flex items-center pr-4">
+                                    <i class="fas fa-phone text-slate-400"></i>
+                                </div>
+                            </div>
+                            <div class="relative">
+                                <select
+                                    class="w-full p-4 bg-slate-700/50 rounded-lg border border-slate-600 focus:border-blue-500 focus:outline-none transition-all duration-300 backdrop-blur-sm glass-effect">
+                                    <option>Select Service</option>
+                                    <option>Web Development</option>
+                                    <option>Mobile Apps</option>
+                                    <option>Cloud Solutions</option>
+                                    <option>AI & Machine Learning</option>
+                                    <option>Other</option>
+                                </select>
+                                <div class="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none">
+                                    <i class="fas fa-chevron-down text-slate-400"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <input type="text" placeholder="Project Subject" required
+                                class="w-full p-4 bg-slate-700/50 rounded-lg border border-slate-600 focus:border-blue-500 focus:outline-none transition-all duration-300 backdrop-blur-sm glass-effect">
+                            <div class="absolute inset-y-0 right-0 flex items-center pr-4">
+                                <i class="fas fa-tag text-slate-400"></i>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <textarea rows="6" placeholder="Tell us about your project..." required
+                                class="w-full p-4 bg-slate-700/50 rounded-lg border border-slate-600 focus:border-blue-500 focus:outline-none transition-all duration-300 resize-none backdrop-blur-sm glass-effect"></textarea>
+                            <div class="absolute top-4 right-4">
+                                <i class="fas fa-comment text-slate-400"></i>
+                            </div>
+                        </div>
+                        <button type="submit"
+                            class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 px-8 py-4 rounded-lg text-lg font-bold transition-all duration-300 transform hover:scale-105 button-glow">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                <div class="scroll-reveal slide-in-right">
+                    <div class="space-y-8">
+                        <div
+                            class="flex items-center space-x-6 p-6 service-card rounded-xl glass-effect hover:bg-slate-600/50 transition-all duration-300 group">
+                            <div
+                                class="bg-blue-600 p-4 rounded-full group-hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-map-marker-alt text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4
+                                    class="text-xl font-bold mb-2 group-hover:text-blue-400 transition-colors duration-300">
+                                    Our Location</h4>
+                                <p class="text-gray-400">123 Innovation Street<br>Tech City, TC 12345</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center space-x-6 p-6 service-card rounded-xl glass-effect hover:bg-slate-600/50 transition-all duration-300 group">
+                            <div
+                                class="bg-green-600 p-4 rounded-full group-hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-phone text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4
+                                    class="text-xl font-bold mb-2 group-hover:text-green-400 transition-colors duration-300">
+                                    Phone Number</h4>
+                                <p class="text-gray-400">+1 (555) 123-4567<br>+1 (555) 987-6543</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center space-x-6 p-6 service-card rounded-xl glass-effect hover:bg-slate-600/50 transition-all duration-300 group">
+                            <div
+                                class="bg-purple-600 p-4 rounded-full group-hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-envelope text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4
+                                    class="text-xl font-bold mb-2 group-hover:text-purple-400 transition-colors duration-300">
+                                    Email Address</h4>
+                                <p class="text-gray-400">info@webnova.com<br>hello@webnova.com</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center space-x-6 p-6 service-card rounded-xl glass-effect hover:bg-slate-600/50 transition-all duration-300 group">
+                            <div
+                                class="bg-orange-600 p-4 rounded-full group-hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-clock text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4
+                                    class="text-xl font-bold mb-2 group-hover:text-orange-400 transition-colors duration-300">
+                                    Working Hours</h4>
+                                <p class="text-gray-400">Mon - Fri: 9:00 AM - 6:00 PM<br>Sat: 10:00 AM - 4:00 PM</p>
+                            </div>
+                        </div>
+
+                        <!-- Social Media Links -->
+                        <div class="pt-8">
+                            <h4 class="text-xl font-bold mb-6 text-center">Follow Us</h4>
+                            <div class="flex justify-center space-x-4">
+                                <a href="#"
+                                    class="w-12 h-12 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center text-white transition-all duration-300 transform hover:scale-110 hover:rotate-12">
+                                    <i class="fab fa-facebook text-xl"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-12 h-12 bg-sky-500 hover:bg-sky-600 rounded-full flex items-center justify-center text-white transition-all duration-300 transform hover:scale-110 hover:rotate-12">
+                                    <i class="fab fa-twitter text-xl"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-12 h-12 bg-blue-700 hover:bg-blue-800 rounded-full flex items-center justify-center text-white transition-all duration-300 transform hover:scale-110 hover:rotate-12">
+                                    <i class="fab fa-linkedin text-xl"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-12 h-12 bg-pink-600 hover:bg-pink-700 rounded-full flex items-center justify-center text-white transition-all duration-300 transform hover:scale-110 hover:rotate-12">
+                                    <i class="fab fa-instagram text-xl"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-12 h-12 bg-gray-800 hover:bg-gray-900 rounded-full flex items-center justify-center text-white transition-all duration-300 transform hover:scale-110 hover:rotate-12">
+                                    <i class="fab fa-github text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 py-16 border-t border-slate-800 relative">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-4 gap-12">
+                <!-- Company Info -->
+                <div class="lg:col-span-1">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="relative">
+                            <i class="fas fa-rocket text-3xl text-blue-500"></i>
+                            <div class="absolute -top-1 -right-1 w-3 h-3 bg-purple-500 rounded-full animate-pulse">
+                            </div>
+                        </div>
+                        <h4 class="text-2xl font-bold gradient-text">Web Nova</h4>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed mb-6 max-w-sm">
+                        Transforming ideas into exceptional digital experiences. We are your trusted partner in building
+                        the future of technology.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="text-gray-400 hover:text-blue-400 transition-colors duration-300 transform hover:scale-110">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#"
+                            class="text-gray-400 hover:text-blue-400 transition-colors duration-300 transform hover:scale-110">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#"
+                            class="text-gray-400 hover:text-blue-400 transition-colors duration-300 transform hover:scale-110">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#"
+                            class="text-gray-400 hover:text-blue-400 transition-colors duration-300 transform hover:scale-110">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h5 class="text-lg font-bold mb-6 text-white">Services</h5>
+                    <ul class="space-y-3">
+                        <li><a href="#"
+                                class="text-gray-400 hover:text-blue-400 transition-colors duration-300 flex items-center group">
+                                <i
+                                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform duration-300"></i>
+                                Web Development
+                            </a></li>
+                        <li><a href="#"
+                                class="text-gray-400 hover:text-blue-400 transition-colors duration-300 flex items-center group">
+                                <i
+                                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform duration-300"></i>
+                                Mobile Applications
+                            </a></li>
+                        <li><a href="#"
+                                class="text-gray-400 hover:text-blue-400 transition-colors duration-300 flex items-center group">
+                                <i
+                                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform duration-300"></i>
+                                Cloud Solutions
+                            </a></li>
+                        <li><a href="#"
+                                class="text-gray-400 hover:text-blue-400 transition-colors duration-300 flex items-center group">
+                                <i
+                                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform duration-300"></i>
+                                AI & Machine Learning
+                            </a></li>
+                        <li><a href="#"
+                                class="text-gray-400 hover:text-blue-400 transition-colors duration-300 flex items-center group">
+                                <i
+                                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform duration-300"></i>
+                                Cybersecurity
+                            </a></li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h5 class="text-lg font-bold mb-6 text-white">Quick Links</h5>
+                    <ul class="space-y-3">
+                        <li><a href="#"
+                                class="text-gray-400 hover:text-blue-400 transition-colors duration-300 flex items-center group">
+                                <i
+                                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform duration-300"></i>
+                                About Us
+                            </a></li>
+                        <li><a href="#"
+                                class="text-gray-400 hover:text-blue-400 transition-colors duration-300 flex items-center group">
+                                <i
+                                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform duration-300"></i>
+                                Our Team
+                            </a></li>
+                        <li><a href="#"
+                                class="text-gray-400 hover:text-blue-400 transition-colors duration-300 flex items-center group">
+                                <i
+                                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform duration-300"></i>
+                                Career
+                            </a></li>
+                        <li><a href="#"
+                                class="text-gray-400 hover:text-blue-400 transition-colors duration-300 flex items-center group">
+                                <i
+                                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform duration-300"></i>
+                                Privacy Policy
+                            </a></li>
+                        <li><a href="#"
+                                class="text-gray-400 hover:text-blue-400 transition-colors duration-300 flex items-center group">
+                                <i
+                                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform duration-300"></i>
+                                Terms of Service
+                            </a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h5 class="text-lg font-bold mb-6 text-white">Newsletter</h5>
+                    <p class="text-gray-400 mb-6">
+                        Subscribe to get the latest updates, news, and exclusive offers delivered to your inbox.
+                    </p>
+                    <form class="space-y-4" id="newsletterForm">
+                        <div class="relative">
+                            <input type="email" placeholder="Enter your email" required
+                                class="w-full p-4 bg-slate-700/50 rounded-lg border border-slate-600 focus:border-blue-500 focus:outline-none transition-all duration-300 backdrop-blur-sm glass-effect">
+                            <div class="absolute inset-y-0 right-0 flex items-center pr-4">
+                                <i class="fas fa-envelope text-slate-400"></i>
+                            </div>
+                        </div>
+                        <button type="submit"
+                            class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 px-6 py-3 rounded-lg font-bold transition-all duration-300 transform hover:scale-105 button-glow">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Subscribe Now
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="border-t border-slate-800 mt-16 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 mb-4 md:mb-0">
+                        &copy; 2025 Web Nova. All rights reserved.
+                    </p>
+                    <div class="flex items-center space-x-6">
+                        <span class="text-gray-400 text-sm">Built with</span>
+                        <i class="fas fa-heart text-red-500 animate-pulse"></i>
+                        <span class="text-gray-400 text-sm">by Web Nova Team</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop"
+        class="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white opacity-0 invisible transition-all duration-300 transform hover:scale-110 button-glow z-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('navbar-scroll');
+            } else {
+                navbar.classList.remove('navbar-scroll');
+            }
+        });
+
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Typing animation restart on scroll
+        const typingElement = document.querySelector('.typing-animation');
+        const typingObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'none';
+                    entry.target.offsetHeight; // Trigger reflow
+                    entry.target.style.animation = 'typing 4s steps(40, end), blink-caret 0.75s step-end infinite';
+                }
+            });
+        }, { threshold: 0.5 });
+
+        if (typingElement) {
+            typingObserver.observe(typingElement);
+        }
+
+        // Counter animation
+        const animateCounters = () => {
+            const counters = document.querySelectorAll('#about [data-target]');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const increment = target / 100;
+                let current = 0;
+
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        if (counter.textContent.includes('%')) {
+                            counter.textContent = Math.ceil(current) + '%';
+                        } else {
+                            counter.textContent = Math.ceil(current) + (target >= 100 ? '+' : '');
+                        }
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        if (counter.textContent.includes('%')) {
+                            counter.textContent = target + '%';
+                        } else {
+                            counter.textContent = target + (target >= 100 ? '+' : '');
+                        }
+                    }
+                };
+
+                updateCounter();
+            });
+        };
+
+        // Trigger counter animation when about section is visible
+        const aboutSection = document.getElementById('about');
+        if (aboutSection) {
+            const aboutObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        aboutObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            aboutObserver.observe(aboutSection);
+        }
+
+        // Contact form submission
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Get form data
+                const name = this.querySelector('input[placeholder="Full Name"]').value;
+                const email = this.querySelector('input[placeholder="Email Address"]').value;
+                const phone = this.querySelector('input[placeholder="Phone Number"]').value;
+                const service = this.querySelector('select').value;
+                const subject = this.querySelector('input[placeholder="Project Subject"]').value;
+                const message = this.querySelector('textarea').value;
+
+                // Simple validation
+                if (!name || !email || !subject || !message) {
+                    showNotification('Please fill in all required fields', 'error');
+                    return;
+                }
+
+                if (!isValidEmail(email)) {
+                    showNotification('Please enter a valid email address', 'error');
+                    return;
+                }
+
+                // Simulate form submission
+                const submitButton = this.querySelector('button[type="submit"]');
+                const originalText = submitButton.innerHTML;
+                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
+                submitButton.disabled = true;
+
+                setTimeout(() => {
+                    showNotification('Message sent successfully! We\'ll get back to you soon.', 'success');
+                    this.reset();
+                    submitButton.innerHTML = originalText;
+                    submitButton.disabled = false;
+                }, 2000);
+            });
+        }
+
+        // Newsletter subscription
+        const newsletterForm = document.getElementById('newsletterForm');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const email = this.querySelector('input[type="email"]').value.trim();
+
+                if (!email) {
+                    showNotification('Please enter your email address', 'error');
+                    return;
+                }
+
+                if (!isValidEmail(email)) {
+                    showNotification('Please enter a valid email address', 'error');
+                    return;
+                }
+
+                const submitButton = this.querySelector('button[type="submit"]');
+                const originalText = submitButton.innerHTML;
+                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Subscribing...';
+                submitButton.disabled = true;
+
+                setTimeout(() => {
+                    showNotification('Successfully subscribed to our newsletter!', 'success');
+                    this.reset();
+                    submitButton.innerHTML = originalText;
+                    submitButton.disabled = false;
+                }, 1500);
+            });
+        }
+
+        // Email validation function
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Notification system
+        function showNotification(message, type = 'info') {
+            // Remove existing notification
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification fixed top-4 right-4 px-6 py-4 rounded-lg font-semibold z-50 transform translate-x-full transition-transform duration-300`;
+
+            // Set color based on type
+            if (type === 'success') {
+                notification.classList.add('bg-green-600', 'text-white');
+                notification.innerHTML = `<i class="fas fa-check-circle mr-2"></i>${message}`;
+            } else if (type === 'error') {
+                notification.classList.add('bg-red-600', 'text-white');
+                notification.innerHTML = `<i class="fas fa-exclamation-circle mr-2"></i>${message}`;
+            } else {
+                notification.classList.add('bg-blue-600', 'text-white');
+                notification.innerHTML = `<i class="fas fa-info-circle mr-2"></i>${message}`;
+            }
+
+            document.body.appendChild(notification);
+
+            // Show notification
+            setTimeout(() => {
+                notification.classList.remove('translate-x-full');
+            }, 100);
+
+            // Hide notification after 5 seconds
+            setTimeout(() => {
+                notification.classList.add('translate-x-full');
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            }, 5000);
+        }
+
+        // Active navigation state
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-blue-400');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('text-blue-400');
+                }
+            });
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.add('opacity-0', 'invisible');
+                backToTopButton.classList.remove('opacity-100', 'visible');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroSection = document.getElementById('home');
+            if (heroSection && scrolled < window.innerHeight) {
+                const rate = scrolled * -0.3;
+                heroSection.style.transform = `translateY(${rate}px)`;
+            }
+        });
+
+        // Mobile menu functionality
+        const mobileMenuButton = document.querySelector('.md\\:hidden button');
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', () => {
+                showNotification('Mobile menu functionality can be enhanced further as needed', 'info');
+            });
+        }
+
+        // Loading animation for buttons
+        document.querySelectorAll('button').forEach(button => {
+            if (!button.id && !button.type) {
+                button.addEventListener('click', function () {
+                    if (this.textContent.includes('View Project') || this.textContent.includes('View All Projects')) {
+                        const originalText = this.innerHTML;
+                        this.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Loading...';
+                        this.disabled = true;
+
+                        setTimeout(() => {
+                            showNotification('Project details would open here in a real application', 'info');
+                            this.innerHTML = originalText;
+                            this.disabled = false;
+                        }, 1000);
+                    }
+                });
+            }
+        });
+
+        // Initialize animations on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add entrance animations to hero elements
+            setTimeout(() => {
+                const heroElements = document.querySelectorAll('#home .fade-in');
+                heroElements.forEach((el, index) => {
+                    setTimeout(() => {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                    }, index * 200);
+                });
+            }, 300);
+        });
+
+        // Enhanced hover effects for service cards
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function () {
+                this.style.background = 'linear-gradient(145deg, #475569 0%, #334155 100%)';
+            });
+
+            card.addEventListener('mouseleave', function () {
+                this.style.background = 'linear-gradient(145deg, #374151 0%, #1f2937 100%)';
+            });
+        });
+
+        // Add ripple effect to buttons
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', function (e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.classList.add('ripple');
+
+                const rippleCSS = document.createElement('style');
+                rippleCSS.textContent = `
+                    .ripple {
+                        position: absolute;
+                        border-radius: 50%;
+                        background: rgba(255, 255, 255, 0.3);
+                        transform: scale(0);
+                        animation: ripple-animation 0.6s linear;
+                        pointer-events: none;
+                    }
+                    @keyframes ripple-animation {
+                        to {
+                            transform: scale(4);
+                            opacity: 0;
+                        }
+                    }
+                `;
+
+                if (!document.head.querySelector('style[data-ripple]')) {
+                    rippleCSS.setAttribute('data-ripple', 'true');
+                    document.head.appendChild(rippleCSS);
+                }
+
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+    </script>
+</body>
